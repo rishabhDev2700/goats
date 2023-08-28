@@ -4,6 +4,7 @@ import "gorm.io/gorm"
 
 type Category struct{
     gorm.Model
-    Name string
-    Description string
+    Name string `json:"name"`
+    Description string `json:"description"`
+    Articles []Article `gorm:"foreignKey:CategoryID;"`
 }

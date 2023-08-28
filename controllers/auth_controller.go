@@ -3,8 +3,10 @@ package controllers
 import (
 	"context"
 	"io"
+	// "log"
 	"net/http"
 	"rishabhdev2700/goats/auth"
+	// "encoding"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -41,3 +43,8 @@ func GoogleCallback(c *fiber.Ctx) error {
 	return c.SendString(string(userData))
 
 }
+
+// func RegisterUser(data []byte)error{
+// 	// data := string(data)
+// 	// user := models.User{Email: }
+// }
