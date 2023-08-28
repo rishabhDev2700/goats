@@ -11,7 +11,7 @@ type User struct{
     Email string `gorm:"size:70;unique;not null;" json:"email"`
     Username string `gorm:"unique;not null;"`
     Password string `gorm:"not null"`
-    Type int
+    IsAdmin bool
     Location string 
     GoogleID string `gorm:"not null" json:"id"`
 }

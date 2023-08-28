@@ -30,5 +30,31 @@ func CreateArticle(c *fiber.Ctx) error {
             "error":err,
         })
     }
-    return 
+	err:=models.DB.Create(&article)
+	if err!=nil{
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message":"Unable to save article in the database",
+			"error":err,
+		})
+	}
+    return c.JSON(fiber.Map{"message":"Article saved to database successfully"})
+}
+
+func CreateTag(c *fiber.Ctx)error{
+	tag := models.Tag{}
+	if err := c.BodyParser(&tag);err!=nil{
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+            "message":"Error while parsing json data",
+            "error":err,
+        })
+	}
+	if err:=models.DB.Create(&tag);err!=nil{
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+            "message":"Unable to store tag in the database",
+            "error":err,
+        })
+	}
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"message":"Tag created successfully",
+	})
 }
