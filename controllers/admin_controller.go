@@ -22,6 +22,7 @@ func CreateCategory(c *fiber.Ctx) error {
 
 }
 
+
 func CreateArticle(c *fiber.Ctx) error {
     article := models.Article{}
     if err := c.BodyParser(&article); err !=nil{

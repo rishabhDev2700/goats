@@ -44,7 +44,3 @@ func GoogleCallback(c *fiber.Ctx) error {
 
 }
 
-// func RegisterUser(data []byte)error{
-// 	// data := string(data)
-// 	// user := models.User{Email: }
-// }
